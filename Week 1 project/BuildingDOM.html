@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eloquent js</title>
+  </head>
+  <body>
+    <h1>Mountains</h1>
+
+    <div id="mountains"></div>
+  </body>
+  <script>
+     const MOUNTAINS = [
+    {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+    {name: "Everest", height: 8848, place: "Nepal"},
+    {name: "Mount Fuji", height: 3776, place: "Japan"},
+    {name: "Vaalserberg", height: 323, place: "Netherlands"},
+    {name: "Denali", height: 6168, place: "United States"},
+    {name: "Popocatepetl", height: 5465, place: "Mexico"},
+    {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+  ];
+    let objectKeys = Object.keys(MOUNTAINS[0])
+    
+    //  create table element
+    let table = document.createElement("table")
+    let headerRow = document.createElement("tr")
+    
+    objectKeys.forEach((key)=>{
+      let th = document.createElement("th")
+      th.textContent = key
+
+      headerRow.appendChild(th)
+      table.appendChild(headerRow)
+    })
+    
+    MOUNTAINS.forEach((mountain)=>{
+      let bodyRow = document.createElement("tr")
+      let mountainValues = Object.values(mountain)
+      mountainValues.forEach((key)=>{
+        let td = document.createElement("td")
+        if(typeof key == "number" ){
+          td.style.textAlign = "right"
+        }
+        td.textContent = key
+      
+      bodyRow.appendChild(td)
+      table.appendChild(bodyRow)
+    })}
+    
+    
+  )
+   let divId = document.getElementById("mountains")
+   divId.appendChild(table)
+  </script>
+</html>
